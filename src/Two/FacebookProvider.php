@@ -19,7 +19,7 @@ class FacebookProvider extends AbstractProvider implements ProviderInterface
      *
      * @var string
      */
-    protected $version = 'v3.0';
+    protected $version = 'v3.3';
 
     /**
      * The user fields being requested.
@@ -172,6 +172,18 @@ class FacebookProvider extends AbstractProvider implements ProviderInterface
     public function reRequest()
     {
         $this->reRequest = true;
+
+        return $this;
+    }
+    
+    /**
+     * Change the graph version
+     *
+     * @return $this
+     */
+    public function useGraphVersion(string $version) 
+    {
+        $this->version = $version;
 
         return $this;
     }
